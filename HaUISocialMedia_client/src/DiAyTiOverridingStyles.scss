@@ -1,0 +1,57 @@
+.br-6 {
+    border-radius: 6px !important;
+}
+
+.over-hidden {
+    overflow: hidden !important;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.bg-bgHaui.h-screen {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+
+    .loginFormWrapper {
+        justify-content: flex-end;
+        width: 100%;
+        padding-right: 100px;
+
+        .loginForm {
+            background-color: white;
+            opacity: 0.92;
+            min-width: 380px;
+
+            .loginFormAvatar {
+                background-color: white;
+            }
+
+            .actionBtn {
+                background-color: #0054c8;
+            }
+        }
+    }
+
+}
+
+
+.infoCard {
+    padding: 16px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+
+.disableLeftSideBarItem {
+    opacity: 0.7;
+    background-color: transparent !important;
+
+    &:hover {
+        cursor: not-allowed;
+        background-color: transparent !important;
+    }
+}

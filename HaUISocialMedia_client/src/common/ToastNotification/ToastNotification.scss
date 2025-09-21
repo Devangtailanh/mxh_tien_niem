@@ -1,0 +1,43 @@
+.toastNotificationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .notiImageWrapper {
+
+        .notiImage {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            max-width: 50px;
+        }
+
+    }
+
+    .notiContentWrapper {
+        margin-left: 12px;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .notiContent {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: black;
+        }
+    }
+}
+
+.closeButtonToast {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.Toastify__close-button {
+    color: black !important;
+}

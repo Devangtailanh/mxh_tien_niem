@@ -1,0 +1,112 @@
+.message {
+    display: flex;
+    flex-direction: column;
+
+    .user-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: unset !important;
+
+        .thumbnail {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        }
+
+        .bubble-container {
+            margin-left: 50px;
+
+            .bubble {
+                margin: 1px 0px;
+                background: white;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                padding: 10px 15px;
+                border-radius: 20px;
+                max-width: 75%;
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                overflow-wrap: anywhere;
+            }
+        }
+    }
+
+    .notification {
+        display: flex;
+        justify-content: center;
+        color: #99999988;
+        font-weight: 500;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .username {
+        display: flex;
+        justify-content: flex-start;
+        color: #999;
+        font-weight: 600;
+        font-size: 12px;
+        margin-left: 54px;
+    }
+
+    .bubble-container {
+        font-size: 14px;
+        display: flex;
+        width: 100%;
+    }
+
+    &.mine {
+        .user-container {
+            justify-content: end;
+        }
+
+        .username {
+            justify-content: end;
+            margin-right: 10px;
+        }
+
+        .bubble-container {
+            justify-content: flex-end;
+
+            .bubble {
+                background: #007aff;
+                color: white;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                border-top-right-radius: 2px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                border-bottom-right-radius: 2px;
+            }
+        }
+    }
+}
+
+.message.start .user-container .bubble-container .bubble {
+    margin-top: 5px;
+    border-top-left-radius: 20px;
+}
+
+.message.end .user-container .bubble-container .bubble {
+    border-bottom-left-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.message.mine.start .bubble-container .bubble {
+    border-top-right-radius: 20px;
+}
+
+.message.mine.end .bubble-container .bubble {
+    border-bottom-right-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.message.start .user-container .bubble-container {
+    margin-left: 0px;
+}
+
