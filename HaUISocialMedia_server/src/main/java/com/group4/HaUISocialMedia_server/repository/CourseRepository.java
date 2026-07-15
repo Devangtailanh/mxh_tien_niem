@@ -15,5 +15,9 @@ public interface CourseRepository extends JpaRepository<Course, UUID> {
     @Query("SELECT p FROM Comment p where p.post.id =:postId and p.repliedComment IS null order by p.createDate desc")
     public List<Comment> find(@Param("postId") UUID postId);
 
-    public Course findByName(String name);
+    List<Course> findAllByName(String name);
+
+    default Course findByName(String name) {
+        return findAllByName(name).stream().findFirst().orElse(null);
+    }
 }

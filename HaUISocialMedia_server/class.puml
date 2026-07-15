@@ -1,0 +1,129 @@
+@startuml HaUISocialMedia
+
+' Entity Classes
+class User {
+  - UUID id
+  - String code
+  - String firstName
+  - String lastName
+  - String username
+  - String email
+  - String password
+  - boolean gender
+  - String address
+  - Date birthDate
+  - String phoneNumber
+  - String role
+  - String avatar
+  - String background
+  - boolean disable
+}
+
+class Group {
+  - UUID id
+  - String code
+  - String name
+  - String description
+  - String avatar
+  - String backGroundImage
+  - Date createDate
+}
+
+class Post {
+  - UUID id
+  - Date createDate
+  - String content
+}
+
+class Comment {
+  - UUID id
+  - String content
+  - Date createDate
+}
+
+class Like {
+  - UUID id
+  - Date createDate
+}
+
+class Member {
+  - UUID id
+  - Date joinDate
+  - Role role
+  - boolean isApproved
+}
+
+class Room {
+  - UUID id
+  - String code
+  - String name
+  - String description
+  - Date createDate
+  - String avatar
+  - String color
+}
+
+class Message {
+  - UUID id
+  - String content
+  - Date createDate
+}
+
+class Course {
+  - UUID id
+  - String code
+  - String name
+  - String description
+  - boolean isComplete
+}
+
+class Notification {
+  - UUID id
+  - String content
+  - Date createDate
+  - boolean isRead
+}
+
+class PostImage {
+  - UUID id
+  - String url
+}
+
+class RoomType {
+  - UUID id
+  - String name
+}
+
+class BoardRecord {
+  - UUID id
+  - int totalPost
+  - int totalComment
+  - int totalLike
+}
+
+' Relationships
+User "1" -- "*" Post : creates >
+User "1" -- "*" Comment : writes >
+User "1" -- "*" Like : gives >
+User "1" -- "*" Group : creates >
+User "1" -- "*" Member : joins >
+User "1" -- "*" Message : sends >
+User "1" -- "*" Notification : receives >
+User "1" -- "1" BoardRecord : has >
+
+Group "1" -- "*" Member : has >
+Group "1" -- "*" Post : contains >
+
+Post "1" -- "*" Comment : has >
+Post "1" -- "*" Like : receives >
+Post "1" -- "*" PostImage : contains >
+Post "1" -- "*" Notification : generates >
+
+Room "1" -- "*" Message : contains >
+Room "1" -- "1" RoomType : type >
+Room "*" -- "*" User : participants
+
+Course "*" -- "*" User : enrolled
+Course "1" -- "*" Notification : generates >
+
+@enduml
